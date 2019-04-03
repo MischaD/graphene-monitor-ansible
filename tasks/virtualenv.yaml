@@ -1,0 +1,14 @@
+---
+- name: install virtualenv
+  become: true
+  pip:
+    name: virtualenv
+
+- name: install dependencies from requirements.txt
+  become: true
+  become_user: root
+  pip:
+    requirements: "{{gphmonitor_requirements__install_path}}" 
+    virtualenv: "{{gphmonitor__venv}}"
+    virtualenv_python: python3.5 #evtl python3.5 or python3
+    #sudo: yes

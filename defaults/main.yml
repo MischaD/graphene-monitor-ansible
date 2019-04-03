@@ -1,0 +1,7 @@
+---
+# defaults file for graphene-monitor
+
+gphmonitor__user: graphenemonitor
+gphmonitor__install_path: "/home/{{gphmonitor__user}}/graphene-monitor"
+gphmonitor__venv: "/home/{{gphmonitor__user}}/graphene-monitor/venv"
+gphmonitor_requirements__install_path: "/home/{{gphmonitor__user}}/graphene-monitor/requirements.txt"

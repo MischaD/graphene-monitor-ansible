@@ -1,0 +1,24 @@
+- name: get config file for monitor
+  become: yes
+  become_user: root
+  template: src=config.yaml.j2 dest={{gphmonitor__install_path}}/config.yaml
+  
+- name: install monitor systemd unit file
+  become: yes
+  become_user: root
+  template: src=graphene_monitor.service.j2 dest=/etc/systemd/system/graphene_monitor.service
+
+- name: start systemd monitor 
+  become: yes
+  become_user: root
+  systemd: state=started name=graphene_monitor daemon_reload=yes
+
+#- name: run monitor
+#   command: "{{gphmonitor__venv}}/bin/python3 {{gphmonitor__install_path}}/cli.py"
+#   become: true
+#  environment:
+#     LC_ALL: C.UTF-8
+#     LANG: C.UTF-8
+#   args:
+#     chdir: "{{gphmonitor__install_path}}"
+#   register: foobar

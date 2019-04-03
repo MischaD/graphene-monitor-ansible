@@ -1,0 +1,18 @@
+EventMonitor:
+    sources:
+        - BlockchainbvStatusCode:
+            class: http_status_code.HttpStatusCode
+            url: https://www.blockchainprojectsbv.com
+
+    triggers:
+        - TooLongInProgress:
+            class: valuecompare.ValueCompare
+            less: 301
+            level: 2
+
+    actions:
+        - action:
+            class: telegram_msg.TelegramMsg
+            token: 650629189:AAFYP-HkR8ctEtpxds-liz2Hd3-kRlpVDp8
+            chat_id: 150691943
+            level: 2

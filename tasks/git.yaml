@@ -1,0 +1,10 @@
+---
+- name: Checking out repository
+  become: true
+  become_user: "{{gphmonitor__user}}"
+  git:
+      repo: 'https://github.com/blockchainbv/graphene-monitor.git'
+      dest: "{{gphmonitor__install_path}}"
+      force: true
+      version: "master"
+ 

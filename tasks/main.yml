@@ -1,0 +1,7 @@
+---
+- import_tasks: prepare.yaml
+- import_tasks: git.yaml
+- import_tasks: dependencies.yaml
+- import_tasks: virtualenv.yaml
+- import_tasks: configuration.yaml
+

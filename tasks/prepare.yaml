@@ -1,0 +1,5 @@
+---
+- name: New user
+  become: true
+  user:
+      name: "{{gphmonitor__user}}"

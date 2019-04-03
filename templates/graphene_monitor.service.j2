@@ -1,0 +1,17 @@
+[Unit]
+Description=Graphene Montitor
+After=network.target
+
+[Service]
+User=peerplays
+Group=peerplays
+WorkingDirectory={{gphmonitor__install_path}}
+
+Type=simple
+Restart=always
+ExecStart={{gphmonitor__install_path}}/env/bin/python3 {{gphmonitor__install_path}}/cli.py --monitor_interval=20
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

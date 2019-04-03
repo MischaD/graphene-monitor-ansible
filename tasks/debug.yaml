@@ -1,0 +1,12 @@
+---
+- name: Demo
+  debug:
+    msg: "Foobar"
+
+- name: Testing template
+  become: true
+  template:
+    src: demo-template.ini.j2
+    dest: /tmp/demo.ini
+    owner: root
+    group: root
